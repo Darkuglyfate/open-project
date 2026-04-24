@@ -1,0 +1,60 @@
+❌ ReferenceError: VISIBLE is not defined
+    at PortfolioSlider (https://app-qak3pz6jeic2zicxomzm4wz6zh3pvfbqtlp7zihjcxoiymv224aq.makeproxy-c.figma.site/src/app/components/PortfolioSlider.tsx?t=1774706377085:202:30)
+    at ms (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:68027)
+    at _S (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:114634)
+    at _4 (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:127720)
+    at HTMLUnknownElement.y (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:25:54006)
+    at HTMLUnknownElement.dispatchEvent (chrome-extension://gacgndbocaddlemdiaadajmlggabdeod/inject.chrome.c5b539e8.js:38:138436)
+    at Object.ik (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:25:54331)
+    at iz (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:25:55284)
+    at ep (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:166948)
+    at SX (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160942)
+❌ ReferenceError: VISIBLE is not defined
+    at PortfolioSlider (https://app-qak3pz6jeic2zicxomzm4wz6zh3pvfbqtlp7zihjcxoiymv224aq.makeproxy-c.figma.site/src/app/components/PortfolioSlider.tsx?t=1774706377085:202:30)
+    at ms (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:68027)
+    at _S (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:114634)
+    at _4 (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:127720)
+    at ep (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:166810)
+    at SX (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160942)
+    at S$ (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160557)
+    at Sz (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160323)
+    at SI (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:156868)
+    at SN (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:158222)
+[vite] hot updated: /src/imports/Body.tsx
+[vite] hot updated: /src/styles/index.css
+1:59:37 PM [vite] (client) hmr update /src/imports/Body.tsx, /src/styles/index.css
+❌ ReferenceError: VISIBLE is not defined
+    at PortfolioSlider (https://app-qak3pz6jeic2zicxomzm4wz6zh3pvfbqtlp7zihjcxoiymv224aq.makeproxy-c.figma.site/src/app/components/PortfolioSlider.tsx?t=1774706377085:202:30)
+    at ms (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:68027)
+    at _S (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:114634)
+    at _4 (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:127720)
+    at HTMLUnknownElement.y (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:25:54006)
+    at HTMLUnknownElement.dispatchEvent (chrome-extension://gacgndbocaddlemdiaadajmlggabdeod/inject.chrome.c5b539e8.js:38:138436)
+    at Object.ik (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:25:54331)
+    at iz (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:25:55284)
+    at ep (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:166948)
+    at SX (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160942)
+❌ ReferenceError: VISIBLE is not defined
+    at PortfolioSlider (https://app-qak3pz6jeic2zicxomzm4wz6zh3pvfbqtlp7zihjcxoiymv224aq.makeproxy-c.figma.site/src/app/components/PortfolioSlider.tsx?t=1774706377085:202:30)
+    at ms (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:68027)
+    at _S (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:114634)
+    at _4 (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:127720)
+    at ep (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:166810)
+    at SX (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160942)
+    at S$ (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160557)
+    at Sz (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:160323)
+    at SI (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:156868)
+    at SN (https://www.figma.com/webpack-artifacts/assets/code_components_preview_iframe-c57f661b337ed852.min.js.br:37:158222)
+❌ [Make] Blank preview detected: Your app rendered no content.
+
+This typically happens when:
+1. The component returns null, undefined, or an empty fragment
+2. A conditional render (e.g., `condition && <Component />`) evaluated to false
+3. The component threw an error during render that was silently caught
+4. Required props are missing or have unexpected values
+
+To fix this:
+- Check that your component's return statement returns valid JSX
+- Verify all conditional renders have fallback content
+- Ensure required props are being passed correctly
+- Check the console for any other errors that may have occurred
