@@ -80,36 +80,36 @@ function CompareSlider({ before, after }: SliderProps) {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      {/* BEFORE — full width baseline */}
+      {/* AFTER — full width baseline (shown by default) */}
       <img
-        src={before}
-        alt="До"
+        src={after}
+        alt="После"
         draggable={false}
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Label ДО */}
+      {/* Label ПОСЛЕ */}
       <div className="absolute top-[16px] left-[16px] z-10 pointer-events-none">
         <span className="bg-white/90 font-['Manrope:Extra_Bold',sans-serif] text-[11px] tracking-[2px] uppercase text-[#2d3435] px-[10px] py-[5px]">
-          До
+          После
         </span>
       </div>
 
-      {/* AFTER — clipped to right of handle */}
+      {/* BEFORE — clipped to right of handle (revealed by dragging) */}
       <div
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
       >
         <img
-          src={after}
-          alt="После"
+          src={before}
+          alt="До"
           draggable={false}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        {/* Label ПОСЛЕ */}
+        {/* Label ДО */}
         <div className="absolute top-[16px] right-[16px] pointer-events-none">
           <span className="bg-[#2d3435]/90 font-['Manrope:Extra_Bold',sans-serif] text-[11px] tracking-[2px] uppercase text-white px-[10px] py-[5px]">
-            После
+            До
           </span>
         </div>
       </div>
