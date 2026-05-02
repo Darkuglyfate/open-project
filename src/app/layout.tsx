@@ -46,6 +46,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           content="Художественная роспись стен и фасадов для квартир, домов, офисов и коммерческих объектов. ARTALYANS: эскиз, расчет, договор и реализация под ключ по России."
         />
         <meta name="robots" content="index, follow" />
+        <meta name="yandex-verification" content="15502df6718af06f" />
         <meta name="yandex-verification" content="2a9f8ed2c0633be4" />
         <meta name="theme-color" content="#2d3435" />
         <link rel="canonical" href="https://artalyans.com/" />
