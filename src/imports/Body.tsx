@@ -55,9 +55,9 @@ function Heading() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 1">
       <div className="flex flex-col font-['Noto_Serif:Regular',sans-serif] font-normal justify-center leading-tight relative shrink-0 text-[#2d3435] text-[30px] sm:text-[52px] lg:text-[72px] tracking-[-0.5px] sm:tracking-[-1px] lg:tracking-[-1.8px] w-full" style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}>
-        <p className="mb-0">Роспись стен и</p>
-        <p className="mb-0">фасадов под</p>
-        <p>ваш объект</p>
+        <p className="mb-0">Роспись, которая</p>
+        <p className="mb-0">опережает ваши</p>
+        <p>сроки</p>
       </div>
     </div>
   );
