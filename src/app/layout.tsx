@@ -7,7 +7,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "ARTALYANS",
-  url: "https://artalyans.pro/",
+  url: "https://artalyans.com/",
   description:
     "Художественная роспись стен и фасадов для квартир, домов, офисов и коммерческих объектов по России.",
   telephone: "+7-968-377-27-70",
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="robots" content="index, follow" />
         <meta name="yandex-verification" content="2a9f8ed2c0633be4" />
         <meta name="theme-color" content="#2d3435" />
-        <link rel="canonical" href="https://artalyans.pro/" />
+        <link rel="canonical" href="https://artalyans.com/" />
 
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           property="og:description"
           content="Художественная роспись стен и фасадов для квартир, домов, офисов и коммерческих объектов. Эскиз, расчет, договор и реализация под ключ по России."
         />
-        <meta property="og:url" content="https://artalyans.pro/" />
+        <meta property="og:url" content="https://artalyans.com/" />
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content="ARTALYANS — роспись стен и фасадов на заказ по России" />

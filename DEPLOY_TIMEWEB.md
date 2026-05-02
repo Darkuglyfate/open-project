@@ -6,7 +6,7 @@
 
 - Node.js 20+ или 22+
 - npm
-- Домен `artalyans.pro`, направленный на хостинг Timeweb
+- Домен `artalyans.com`, направленный на хостинг Timeweb
 
 ## Команды запуска
 
@@ -46,9 +46,9 @@ npm run start
 
 Откройте:
 
-- `https://artalyans.pro/`
-- `https://artalyans.pro/robots.txt`
-- `https://artalyans.pro/sitemap.xml`
+- `https://artalyans.com/`
+- `https://artalyans.com/robots.txt`
+- `https://artalyans.com/sitemap.xml`
 
 В исходном коде страницы должны остаться:
 
