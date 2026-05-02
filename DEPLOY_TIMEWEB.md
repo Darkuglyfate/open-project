@@ -16,7 +16,7 @@ npm run build
 npm run start
 ```
 
-`npm run start` запускает production-сервер Next.js через `next start`.
+`npm run start` запускает production-сервер Next.js через `server.js`.
 
 ## Настройки в Timeweb
 
@@ -40,7 +40,7 @@ npm run build
 npm run start
 ```
 
-6. Если Timeweb просит порт, используйте переменную окружения `PORT`, которую выдаёт хостинг. `next start` читает её автоматически.
+6. Если Timeweb просит порт, используйте переменную окружения `PORT`, которую выдаёт хостинг. `server.js` читает её автоматически.
 
 ## Проверка после запуска
 
