@@ -22,4 +22,5 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.* ./
 
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+HEALTHCHECK --interval=10s --timeout=3s --start-period=10s --retries=12 CMD node -e "fetch('http://127.0.0.1:' + (process.env.PORT || 3000) + '/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))"
+ENTRYPOINT ["node", "server.js"]
