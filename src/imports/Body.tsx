@@ -1,4 +1,3 @@
-import image_74116c188249951a1327de1c4fb8cf5fd4b7c20e from 'figma:asset/74116c188249951a1327de1c4fb8cf5fd4b7c20e.png'
 import svgPaths from "./svg-6qgfb1w4q0";
 import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
@@ -13,27 +12,21 @@ import { HeroPaintOverlay, HERO_TEXTURE_KB_CLASS } from "../app/components/HeroP
 
 import { CheckCircle2, Menu, X } from "lucide-react";
 
-import imgMural from "figma:asset/212e35829f2a34f125b6fa5b5b4d686f7c4e0be8.png";
-import imgAb6AXuDeXxBpgIiSfoDPqRly1XexYuUOirDsFl0PhxvxkEcoXIom03MNhZ6YEjNrZFaLNgQYqcMpfAhWpcRkzDyJw8MP7Tg8Vwj32SxY8G2VfKvUMcueeEcbL6IpDj3ANpoMgrEoM7Vt0XyuYYjl1Cznjn8Tw46ZhxzBny84VdzbokXNdy3AFcjUi66G3LGf1XTaL9Ujun0YpGqbEVxDsZqlcLWrlpNHjPqWbrsdHBhxqThvjVxT3Qe0Zv6LJBc7QSdCnvzw from "figma:asset/e7cc6693649691a7773a3f8d18c024ea486886f0.png";
-import imgAb6AXuDPcybkLYp956HAI9Ogs8Ad2ZoRpMZhZVeczuDgMuoZpk9NdxfZQJrHNkyFktMjN9BWGEtCoNeDGyGt19SAzL5ZnDy1MxOa9JGb4PcUl35D6Sh4GzT5B5HPbf30N0QYlScXq4FN8ABRpHcpnTwkeVztMg6QoeZrXuhSprtt1HcyaqnVnDpM0AAaPQqfMpgrO6HdXlDbIMo163STfbYhcP3JHklVPd8FtnjQeu4XZwUxObdI77UdOj1L9EMyQYq4 from "figma:asset/94998c724566ba2e3e3675b186fe6adbe8798e3d.png";
-import imgAb6AXuBqEhelZhYnoS8UwBbCp64GVuT13JJuymTcYiz8Wzs4D51Lytz9NvdXcAAg1HaIdo4KRihBjt5EpaZtdlEbHfWlMh1IuORmynmRTxBvfygo5LaWvDfiY3CrpqQugTwzqqTv4Ic4ECdIodLcGpVdZgdb0OSfQwmbo6A50BLzGRh789K9UizJqw895S3IaGNnmZaLk3RMBlZ12V7UNm9BHnAgAh79EvPWii5CmtQoJmyJfpz3K8OWthOavtb10Zycy from "figma:asset/5cdce15ddd480926cfa52c6ab4dc3e18d1e83859.png";
-import imgAb6AXuAg1P6UDvCv5Hru4Gc5GyM0NXrpDdxTpWiyRgcGtgFv8DkMqjb5U2Pn9Ea6Wc5XA7QZmiX0WTkOy9Vs3HFiu2J4FuJVan9TwW9Q11LesT9SwJ6RweWlbhwVzgeaaQojGfOidPtclgWq3Mu6HPuXqb0OBlozuc7XJdZeBdsKrh1H4T9UFkIzWA2L7898TinOYkuEa02LD3KeIqDmtw8GqwFaSg99Z0G37KlwQrbGu7Dy0FJfOb9QiQg5XpBhYrtins from "figma:asset/6877bdabbd0b290ac9d02043b9fe1220ad8c5b5a.png";
-import imgLogo from "figma:asset/7f28416faabe9c29ee905a285bdf4755dea77561.png";
-import imgLogo1 from "figma:asset/ecc122bf99c360c13a421830378a056bbd8f0132.png";
-import imgLogo2 from "figma:asset/55caadfcf4b321b2b6e90ada574dd7125ec2ca9f.png";
-import imgLogo3 from "figma:asset/da13bceb24dd4a72b7f8504838cb40e108419813.png";
-import imgLogo4 from "figma:asset/49e12b98ac0d82c1ea7e0e4a99e911b8c1ae984b.png";
-import imgLogo5 from "figma:asset/ffad327855799a8b164a87fb9da458319135a81b.png";
-import imgNavLogo from "figma:asset/3fe5e53c59c3b64683a909a028aacb21034fe2ae.png";
-import imgSanuzle from "figma:asset/fa8dedf646e6aaf7f3104bb7c8580922d558c416.png";
-import imgConcreteRough from "figma:asset/95807f5afa9e3ef6c178e720bbc741e1732036d3.png";
-import imgConcreteWide from "figma:asset/87f38da7ce6054bed1f4bf8e8f3aec9ecba0222c.png";
+const image_74116c188249951a1327de1c4fb8cf5fd4b7c20e = "/images/assets/74116c188249951a1327de1c4fb8cf5fd4b7c20e.png";
+const imgLogo = "/images/assets/7f28416faabe9c29ee905a285bdf4755dea77561.png";
+const imgLogo1 = "/images/assets/ecc122bf99c360c13a421830378a056bbd8f0132.png";
+const imgLogo2 = "/images/assets/55caadfcf4b321b2b6e90ada574dd7125ec2ca9f.png";
+const imgLogo3 = "/images/assets/da13bceb24dd4a72b7f8504838cb40e108419813.png";
+const imgLogo4 = "/images/assets/49e12b98ac0d82c1ea7e0e4a99e911b8c1ae984b.png";
+const imgLogo5 = "/images/assets/ffad327855799a8b164a87fb9da458319135a81b.png";
+const imgConcreteRough = "/images/assets/95807f5afa9e3ef6c178e720bbc741e1732036d3.png";
+const imgConcreteWide = "/images/assets/87f38da7ce6054bed1f4bf8e8f3aec9ecba0222c.png";
 
 function LuxuryInteriorMural() {
   return (
     <div className="flex-[1_0_0] w-full h-full overflow-hidden" data-name="Luxury interior mural" style={{ minHeight: '400px' }}>
       <img
-        src={imgMural}
+        src="/images/hero.jpg"
         alt="Luxury interior mural"
         className="w-full h-full object-cover"
       />
@@ -62,9 +55,9 @@ function Heading() {
   return (
     <div className="content-stretch flex flex-col items-start relative shrink-0 w-full" data-name="Heading 1">
       <div className="flex flex-col font-['Noto_Serif:Regular',sans-serif] font-normal justify-center leading-tight relative shrink-0 text-[#2d3435] text-[30px] sm:text-[52px] lg:text-[72px] tracking-[-0.5px] sm:tracking-[-1px] lg:tracking-[-1.8px] w-full" style={{ fontVariationSettings: "'CTGR' 0, 'wdth' 100" }}>
-        <p className="mb-0">Роспись стен и</p>
-        <p className="mb-0">фасадов под</p>
-        <p>ваш объект</p>
+        <p className="mb-0">Роспись, которая</p>
+        <p className="mb-0">опережает</p>
+        <p>сроки</p>
       </div>
     </div>
   );
@@ -377,7 +370,7 @@ function Ab6AXuDeXxBpgIiSfoDPqRly1XexYuUOirDsFl0PhxvxkEcoXIom03MNhZ6YEjNrZFaLNgQ
   return (
     <div className="h-[440.88px] relative shrink-0 w-full" data-name="AB6AXuDeXxBpgIISfoDPqRly1XexYuUOirDSFl0PhxvxkEcoXIom03mNhZ6yEjNrZFaL_Ng_QYqcMPFAhWpcRkzDyJw8M_P7Tg8vwj32sxY8g2VfKvUMcueeEcbL6IpDj3ANpoMgrEoM7VT0xyuYYjl1cznjn8Tw46zhxzBny84VdzbokX_ndy3a_fcjUI-66G3LGf1xTaL9Ujun0-YpGqbEVx_DS_ZqlcL-wrlp-NHjPQWbrsdHBhxqTHVJVxT3qe0Zv6lJBc7qSdCnvzw">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute h-full left-[-16.67%] max-w-none top-0 w-[133.33%] object-cover" src="https://images.unsplash.com/photo-1613685302226-a4b6e15cf75d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiYXRocm9vbSUyMHdhbGwlMjBtdXJhbCUyMGFydCUyMHBhaW50aW5nJTIwaW50ZXJpb3J8ZW58MXx8fHwxNzc0Mjg4NzM2fDA&ixlib=rb-4.1.0&q=80&w=1080" />
+        <img alt="" className="absolute h-full left-[-16.67%] max-w-none top-0 w-[133.33%] object-cover" src="/images/work-1.jpg" />
       </div>
     </div>
   );
@@ -436,7 +429,7 @@ function Ab6AXuDPcybkLYp956HAI9Ogs8Ad2ZoRpMZhZVeczuDgMuoZpk9NdxfZQJrHNkyFktMjN9B
   return (
     <div className="h-[440.89px] relative shrink-0 w-full" data-name="AB6AXuDPcybkL-YP956H--A_i9ogs8Ad2ZO_rpMZhZVeczuDgMUOZpk9_NdxfZ_QJr-HNkyFKTMjN9bW_GEtCONeDGyGT19sAzL5-ZNDy1-MXOa9jGB4pcUl35D6Sh4GzT5b5hPBF30N0qYLScXq4fN8aB-RP_hcpnTwkeVztMG6_QOEZrXuhSprtt1hcyaqnVNDpM0aAaPQqfMpgrO6Hd-XlDbIMo163sTFBYhcP3JHklVPd8ftnjQEU4xZwUXObdI77udOj1L9EMyQYq4">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute h-full left-0 top-0 w-full object-cover" src={imgAb6AXuDPcybkLYp956HAI9Ogs8Ad2ZoRpMZhZVeczuDgMuoZpk9NdxfZQJrHNkyFktMjN9BWGEtCoNeDGyGt19SAzL5ZnDy1MxOa9JGb4PcUl35D6Sh4GzT5B5HPbf30N0QYlScXq4FN8ABRpHcpnTwkeVztMg6QoeZrXuhSprtt1HcyaqnVnDpM0AAaPQqfMpgrO6HdXlDbIMo163STfbYhcP3JHklVPd8FtnjQeu4XZwUxObdI77UdOj1L9EMyQYq4} />
+        <img alt="" className="absolute h-full left-0 top-0 w-full object-cover" src="/images/work-2.jpg" />
       </div>
     </div>
   );
@@ -503,7 +496,7 @@ function Ab6AXuBqEhelZhYnoS8UwBbCp64GVuT13JJuymTcYiz8Wzs4D51Lytz9NvdXcAAg1HaIdo4
   return (
     <div className="h-[440.88px] relative shrink-0 w-full" data-name="AB6AXuBqEhelZhYnoS__8uwBB_Cp64GVuT13JJuymTcYiz8wzs4d-51_LYTZ9nvdXC-A_ag1HAIdo4kRihBjt5EpaZtdlEBHfWL-MH1iuORmynmR-TXBvfygo5LAWvDfiY3CRPQQugTwzqqTV4ic4ECdIODLcGpVDZgdb0oSfQWMBO6-a_50BLzGRh789k9UizJQW895s3IaGNnmZaLk3rMBlZ-12v_7UNm9bHnAgAh79EvPWii5cmtQOJmyJfpz3_k8oWTHOavtb10ZYCY">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <img alt="" className="absolute h-full left-[-16.67%] max-w-none top-0 w-[133.33%]" src={imgSanuzle} />
+        <img alt="" className="absolute h-full left-[-16.67%] max-w-none top-0 w-[133.33%] object-cover" src="/images/work-3.jpg" />
       </div>
     </div>
   );
@@ -1998,7 +1991,7 @@ function Container78({ onOpenModal }: { onOpenModal?: () => void }) {
         <div className="flex items-center gap-[6px]">
           <Link4 />
           <img
-            src={imgNavLogo}
+            src="/images/logo.png"
             alt="Artalyans logo"
             className="h-[32px] w-auto object-contain mix-blend-multiply"
           />
@@ -2022,7 +2015,7 @@ function Container78({ onOpenModal }: { onOpenModal?: () => void }) {
         <div className="flex items-center gap-[10px] shrink-0">
           <Link4 />
           <img
-            src={imgNavLogo}
+            src="/images/logo.png"
             alt="Artalyans logo"
             className="h-[56px] w-auto object-contain mix-blend-multiply"
           />

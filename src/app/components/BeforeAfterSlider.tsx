@@ -1,13 +1,12 @@
 import { useState, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 
-// After images from portfolio (figma:asset)
-import imgAfter1 from "figma:asset/e7cc6693649691a7773a3f8d18c024ea486886f0.png"; // Cottage interior mural
-import imgAfter2 from "figma:asset/a9592ac7d57cdc6fc0a001f74af4ee981eb594b1.png"; // Geometric office mural
-import imgAfter3 from "figma:asset/b4e2ea9d35cbdfce887f2165ade305eb7fdd1c6c.png"; // Facade mural
-import imgBefore1 from "figma:asset/35e187ee10fa55e53ffdb3022b4e53d9c6f6040d.png"; // Загородный коттедж — до
-import imgBefore2 from "figma:asset/0bba08110576ae00c161c54dd5f0340df68cc86f.png"; // Офисное пространство — до
-import imgBefore3 from "figma:asset/dfff980f04d0ed1eb126cf37e7ed20e86760b49f.png"; // Фасад жилого дома — до
+const imgAfter1 = "/images/assets/e7cc6693649691a7773a3f8d18c024ea486886f0.png"; // Cottage interior mural
+const imgAfter2 = "/images/assets/a9592ac7d57cdc6fc0a001f74af4ee981eb594b1.png"; // Geometric office mural
+const imgAfter3 = "/images/assets/b4e2ea9d35cbdfce887f2165ade305eb7fdd1c6c.png"; // Facade mural
+const imgBefore1 = "/images/assets/35e187ee10fa55e53ffdb3022b4e53d9c6f6040d.png"; // Загородный коттедж — до
+const imgBefore2 = "/images/assets/0bba08110576ae00c161c54dd5f0340df68cc86f.png"; // Офисное пространство — до
+const imgBefore3 = "/images/assets/dfff980f04d0ed1eb126cf37e7ed20e86760b49f.png"; // Фасад жилого дома — до
 
 const PAIRS = [
   {

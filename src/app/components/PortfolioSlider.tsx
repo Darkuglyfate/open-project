@@ -1,28 +1,23 @@
 import { useState, useRef, useCallback } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-import imgCard1 from "figma:asset/e7cc6693649691a7773a3f8d18c024ea486886f0.png";
-import imgCard2 from "figma:asset/94998c724566ba2e3e3675b186fe6adbe8798e3d.png";
-import imgCard3 from "figma:asset/600b231cafe8d7c1cc70c3170f0716e04fd15e13.png";
-import imgCard4 from "figma:asset/b4e2ea9d35cbdfce887f2165ade305eb7fdd1c6c.png";
-import imgCard5 from "figma:asset/8845dc2d97004ecc8cdf92187809c78cccdbb5c6.png";
-import imgCard6 from "figma:asset/a9592ac7d57cdc6fc0a001f74af4ee981eb594b1.png";
-import imgCard8 from "figma:asset/c60b822368f567d8071d645625f5a0157384bc78.png";
-import imgCardApple from "figma:asset/1e653361af0520f62ad7c44083388c0a88547f94.png";
-import imgCard9 from "figma:asset/a9c48d4b2061d6a81117ed7b43f24ef08f1e8cc6.png";
-import imgCard10 from "figma:asset/4062550fa996c6cee62a0650505c08bc0a79483a.png";
-import imgCard11 from "figma:asset/52d49efdbd7a887e041f087716cefa97c5af6a9f.png";
-import imgCard12 from "figma:asset/dd5b1817d7af27f76463156487d533e3f43cb806.png";
-import imgCard13 from "figma:asset/7298c081fa273d4b61a5198e8b2f49a3bf911582.png";
-import imgCard14 from "figma:asset/a12b3ef101fa5812aa1bd73024992ead10b9ac1e.png";
-import imgCard15 from "figma:asset/0501c98263f9690461a34df3738ef747864ce215.png";
-import imgCard16 from "figma:asset/6acfa306e08b9d2433689933c856c9be3bba19c2.png";
-import imgCard17 from "figma:asset/4ce9d6acc6a4ff2eec9f4a1130ed31911dbff61e.png";
-import imgCard18 from "figma:asset/292421d8c6cc3f56a67aa05a672e676ce29a03e7.png";
-import imgCard19 from "figma:asset/532cec51484408e5215acdfee5ebb5940de51994.png";
-import imgCard20 from "figma:asset/963b432eb60c67e05a822874011e802c7a442677.png";
+const imgCard4 = "/images/assets/b4e2ea9d35cbdfce887f2165ade305eb7fdd1c6c.png";
+const imgCard5 = "/images/assets/8845dc2d97004ecc8cdf92187809c78cccdbb5c6.png";
+const imgCard6 = "/images/assets/a9592ac7d57cdc6fc0a001f74af4ee981eb594b1.png";
+const imgCard8 = "/images/assets/c60b822368f567d8071d645625f5a0157384bc78.png";
+const imgCardApple = "/images/assets/1e653361af0520f62ad7c44083388c0a88547f94.png";
+const imgCard9 = "/images/assets/a9c48d4b2061d6a81117ed7b43f24ef08f1e8cc6.png";
+const imgCard10 = "/images/assets/4062550fa996c6cee62a0650505c08bc0a79483a.png";
+const imgCard11 = "/images/assets/52d49efdbd7a887e041f087716cefa97c5af6a9f.png";
+const imgCard12 = "/images/assets/dd5b1817d7af27f76463156487d533e3f43cb806.png";
+const imgCard13 = "/images/assets/7298c081fa273d4b61a5198e8b2f49a3bf911582.png";
+const imgCard14 = "/images/assets/a12b3ef101fa5812aa1bd73024992ead10b9ac1e.png";
+const imgCard15 = "/images/assets/0501c98263f9690461a34df3738ef747864ce215.png";
+const imgCard16 = "/images/assets/6acfa306e08b9d2433689933c856c9be3bba19c2.png";
+const imgCard17 = "/images/assets/4ce9d6acc6a4ff2eec9f4a1130ed31911dbff61e.png";
+const imgCard18 = "/images/assets/292421d8c6cc3f56a67aa05a672e676ce29a03e7.png";
+const imgCard19 = "/images/assets/532cec51484408e5215acdfee5ebb5940de51994.png";
+const imgCard20 = "/images/assets/963b432eb60c67e05a822874011e802c7a442677.png";
 
 interface PortfolioItem {
   id: number;
@@ -36,7 +31,7 @@ interface PortfolioItem {
 const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: 1,
-    image: imgCard1,
+    image: "/images/work-1.jpg",
     area: "150sqm",
     title: "Коттедж",
     location: "ХУДОЖЕСТВЕННАЯ РОСПИСЬ • МОСКВА",
@@ -44,7 +39,7 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = [
   },
   {
     id: 2,
-    image: imgCard2,
+    image: "/images/work-2.jpg",
     area: "420sqm",
     title: 'Компания "ПИК"',
     location: "РИСУНОК В САНУЗЛЕ",
@@ -52,7 +47,7 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = [
   },
   {
     id: 3,
-    image: imgCard3,
+    image: "/images/work-3.jpg",
     area: "85sqm",
     title: 'Компания "ПИК"',
     location: "РИСУНОК В САНУЗЛЕ",
