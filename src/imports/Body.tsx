@@ -22,6 +22,17 @@ const imgLogo5 = "/images/assets/ffad327855799a8b164a87fb9da458319135a81b.png";
 const imgConcreteRough = "/images/assets/95807f5afa9e3ef6c178e720bbc741e1732036d3.png";
 const imgConcreteWide = "/images/assets/87f38da7ce6054bed1f4bf8e8f3aec9ecba0222c.png";
 const CONTACT_EMAIL = "info@newartalyans.ru";
+const CONTACT_EMAIL_MAILTO = `mailto:${CONTACT_EMAIL}`;
+
+function isMobileMailEnvironment() {
+  const userAgent = navigator.userAgent.toLowerCase();
+  const isIpadLikeMac = /macintosh/.test(userAgent) && navigator.maxTouchPoints > 1;
+  const isMobileUserAgent =
+    /android|iphone|ipad|ipod|mobile|windows phone/.test(userAgent) || isIpadLikeMac;
+  const hasTouchPointer = window.matchMedia?.("(pointer: coarse)").matches ?? false;
+
+  return isMobileUserAgent || hasTouchPointer;
+}
 
 async function copyTextToClipboard(text: string) {
   const fallbackCopy = () => {
@@ -1805,11 +1816,14 @@ function Link9({ onClick }: { onClick?: () => void }) {
 
 function ContactsModal({ onClose }: { onClose: () => void }) {
   const [isEmailMenuOpen, setIsEmailMenuOpen] = useState(false);
+  const [shouldUseMobileMailApp, setShouldUseMobileMailApp] = useState(false);
   const [emailCopyStatus, setEmailCopyStatus] = useState<"idle" | "copied" | "manual">("idle");
   const emailCopyTimeoutRef = useRef<number | null>(null);
   const isMountedRef = useRef(true);
 
   useEffect(() => {
+    setShouldUseMobileMailApp(isMobileMailEnvironment());
+
     return () => {
       isMountedRef.current = false;
       if (emailCopyTimeoutRef.current) {
@@ -1929,18 +1943,26 @@ function ContactsModal({ onClose }: { onClose: () => void }) {
                 onKeyDown={handleEmailMenuKeyDown}
                 className="mt-[12px] ml-[52px] bg-white border border-[rgba(45,52,53,0.12)] shadow-[0_12px_30px_rgba(45,52,53,0.12)] p-[10px] flex flex-col gap-[6px]"
               >
-                <a role="menuitem" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                  Написать через Gmail
-                </a>
-                <a role="menuitem" href={`https://mail.yandex.ru/compose?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                  Написать через Яндекс Почту
-                </a>
-                <a role="menuitem" href={`https://e.mail.ru/compose/?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                  Написать через Mail.ru
-                </a>
-                <a role="menuitem" href={`mailto:${CONTACT_EMAIL}`} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                  Открыть почтовое приложение
-                </a>
+                {shouldUseMobileMailApp ? (
+                  <a role="menuitem" href={CONTACT_EMAIL_MAILTO} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                    Открыть почтовое приложение
+                  </a>
+                ) : (
+                  <>
+                    <a role="menuitem" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                      Написать через Gmail
+                    </a>
+                    <a role="menuitem" href={`https://mail.yandex.ru/compose?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                      Написать через Яндекс Почту
+                    </a>
+                    <a role="menuitem" href={`https://e.mail.ru/compose/?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                      Написать через Mail.ru
+                    </a>
+                    <a role="menuitem" href={CONTACT_EMAIL_MAILTO} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                      Открыть почтовое приложение
+                    </a>
+                  </>
+                )}
                 <button
                   role="menuitem"
                   type="button"
