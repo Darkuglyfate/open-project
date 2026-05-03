@@ -1901,41 +1901,57 @@ function ContactsModal({ onClose }: { onClose: () => void }) {
           </a>
 
           <div className="relative z-10">
-            <button
-              type="button"
-              onClick={() => setIsEmailMenuOpen((isOpen) => !isOpen)}
-              onKeyDown={(event) => {
-                if (event.key === "Escape" && isEmailMenuOpen) {
-                  setIsEmailMenuOpen(false);
-                }
-              }}
-              className="flex items-center gap-[12px] group/email no-underline relative z-10 w-full text-left"
-              aria-expanded={isEmailMenuOpen}
-              aria-haspopup="menu"
-              aria-controls={isEmailMenuOpen ? "email-contact-options" : undefined}
-            >
-              <div className="w-[40px] h-[40px] bg-[#2d3435] flex items-center justify-center shrink-0">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f9f9f9"/>
-                </svg>
-              </div>
-              <div className="flex-1">
-                <p className="font-['Manrope:Regular',sans-serif] text-[11px] text-[#737373] not-italic mb-[1px]">Электронная почта</p>
-                <p className="font-['Manrope:Extra_Bold',sans-serif] text-[15px] text-[#2d3435] group-hover/email:text-[#e02020] transition-colors not-italic">
-                  {CONTACT_EMAIL}
-                </p>
-              </div>
-              <svg
-                className={`w-4 h-4 text-[#737373] transition-transform ${isEmailMenuOpen ? "rotate-180" : ""}`}
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                aria-hidden="true"
+            {shouldUseMobileMailApp ? (
+              <a href={CONTACT_EMAIL_MAILTO} aria-label={`Написать на ${CONTACT_EMAIL}`} className="flex items-center gap-[12px] group/email no-underline relative z-10 w-full text-left">
+                <div className="w-[40px] h-[40px] bg-[#2d3435] flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f9f9f9"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="font-['Manrope:Regular',sans-serif] text-[11px] text-[#737373] not-italic mb-[1px]">Электронная почта</p>
+                  <p className="font-['Manrope:Extra_Bold',sans-serif] text-[15px] text-[#2d3435] group-hover/email:text-[#e02020] transition-colors not-italic">
+                    {CONTACT_EMAIL}
+                  </p>
+                </div>
+              </a>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setIsEmailMenuOpen((isOpen) => !isOpen)}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape" && isEmailMenuOpen) {
+                    setIsEmailMenuOpen(false);
+                  }
+                }}
+                className="flex items-center gap-[12px] group/email no-underline relative z-10 w-full text-left"
+                aria-expanded={isEmailMenuOpen}
+                aria-haspopup="menu"
+                aria-controls={isEmailMenuOpen ? "email-contact-options" : undefined}
               >
-                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-              </svg>
-            </button>
+                <div className="w-[40px] h-[40px] bg-[#2d3435] flex items-center justify-center shrink-0">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f9f9f9"/>
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <p className="font-['Manrope:Regular',sans-serif] text-[11px] text-[#737373] not-italic mb-[1px]">Электронная почта</p>
+                  <p className="font-['Manrope:Extra_Bold',sans-serif] text-[15px] text-[#2d3435] group-hover/email:text-[#e02020] transition-colors not-italic">
+                    {CONTACT_EMAIL}
+                  </p>
+                </div>
+                <svg
+                  className={`w-4 h-4 text-[#737373] transition-transform ${isEmailMenuOpen ? "rotate-180" : ""}`}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                </svg>
+              </button>
+            )}
 
-            {isEmailMenuOpen && (
+            {!shouldUseMobileMailApp && isEmailMenuOpen && (
               <div
                 id="email-contact-options"
                 role="menu"
@@ -1943,26 +1959,18 @@ function ContactsModal({ onClose }: { onClose: () => void }) {
                 onKeyDown={handleEmailMenuKeyDown}
                 className="mt-[12px] ml-[52px] bg-white border border-[rgba(45,52,53,0.12)] shadow-[0_12px_30px_rgba(45,52,53,0.12)] p-[10px] flex flex-col gap-[6px]"
               >
-                {shouldUseMobileMailApp ? (
-                  <a role="menuitem" href={CONTACT_EMAIL_MAILTO} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                    Открыть почтовое приложение
-                  </a>
-                ) : (
-                  <>
-                    <a role="menuitem" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                      Написать через Gmail
-                    </a>
-                    <a role="menuitem" href={`https://mail.yandex.ru/compose?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                      Написать через Яндекс Почту
-                    </a>
-                    <a role="menuitem" href={`https://e.mail.ru/compose/?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                      Написать через Mail.ru
-                    </a>
-                    <a role="menuitem" href={CONTACT_EMAIL_MAILTO} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
-                      Открыть почтовое приложение
-                    </a>
-                  </>
-                )}
+                <a role="menuitem" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Написать через Gmail
+                </a>
+                <a role="menuitem" href={`https://mail.yandex.ru/compose?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Написать через Яндекс Почту
+                </a>
+                <a role="menuitem" href={`https://e.mail.ru/compose/?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Написать через Mail.ru
+                </a>
+                <a role="menuitem" href={CONTACT_EMAIL_MAILTO} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Открыть почтовое приложение
+                </a>
                 <button
                   role="menuitem"
                   type="button"
