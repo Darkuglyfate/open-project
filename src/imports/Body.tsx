@@ -1,5 +1,5 @@
 import svgPaths from "./svg-6qgfb1w4q0";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { AnimatedSection } from "../app/components/AnimatedSection";
 import { PortfolioSlider } from "../app/components/PortfolioSlider";
@@ -21,6 +21,43 @@ const imgLogo4 = "/images/assets/49e12b98ac0d82c1ea7e0e4a99e911b8c1ae984b.png";
 const imgLogo5 = "/images/assets/ffad327855799a8b164a87fb9da458319135a81b.png";
 const imgConcreteRough = "/images/assets/95807f5afa9e3ef6c178e720bbc741e1732036d3.png";
 const imgConcreteWide = "/images/assets/87f38da7ce6054bed1f4bf8e8f3aec9ecba0222c.png";
+const CONTACT_EMAIL = "info@newartalyans.ru";
+
+async function copyTextToClipboard(text: string) {
+  const fallbackCopy = () => {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      return document.execCommand("copy");
+    } catch {
+      return false;
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  };
+
+  if (navigator.clipboard?.writeText) {
+    try {
+      await Promise.race([
+        navigator.clipboard.writeText(text),
+        new Promise<never>((_, reject) => {
+          window.setTimeout(() => reject(new Error("Clipboard timeout")), 800);
+        }),
+      ]);
+      return true;
+    } catch {
+      // Some embedded browsers block Clipboard API; fall back to a temporary textarea.
+    }
+  }
+
+  return fallbackCopy();
+}
 
 function LuxuryInteriorMural() {
   return (
@@ -1767,6 +1804,42 @@ function Link9({ onClick }: { onClick?: () => void }) {
 }
 
 function ContactsModal({ onClose }: { onClose: () => void }) {
+  const [isEmailMenuOpen, setIsEmailMenuOpen] = useState(false);
+  const [emailCopyStatus, setEmailCopyStatus] = useState<"idle" | "copied" | "manual">("idle");
+  const emailCopyTimeoutRef = useRef<number | null>(null);
+  const isMountedRef = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMountedRef.current = false;
+      if (emailCopyTimeoutRef.current) {
+        window.clearTimeout(emailCopyTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleCopyEmail = async () => {
+    const isCopied = await copyTextToClipboard(CONTACT_EMAIL);
+
+    if (!isMountedRef.current) {
+      return;
+    }
+
+    setEmailCopyStatus(isCopied ? "copied" : "manual");
+
+    if (emailCopyTimeoutRef.current) {
+      window.clearTimeout(emailCopyTimeoutRef.current);
+    }
+
+    emailCopyTimeoutRef.current = window.setTimeout(() => setEmailCopyStatus("idle"), 2500);
+  };
+
+  const handleEmailMenuKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Escape") {
+      setIsEmailMenuOpen(false);
+    }
+  };
+
   return (
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center"
@@ -1778,6 +1851,7 @@ function ContactsModal({ onClose }: { onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
       >
         <button
+          type="button"
           onClick={onClose}
           className="absolute bottom-[24px] right-[24px] w-[44px] h-[44px] flex items-center justify-center text-[#737373] hover:text-[#2d3435] hover:bg-white bg-[rgba(45,52,53,0.05)] rounded-full transition-all cursor-pointer z-[1000] shadow-sm"
           aria-label="Закрыть"
@@ -1812,19 +1886,78 @@ function ContactsModal({ onClose }: { onClose: () => void }) {
             </div>
           </a>
 
-          <a href="mailto:info@newartalyans.ru" className="flex items-center gap-[12px] group/email no-underline relative z-10">
-            <div className="w-[40px] h-[40px] bg-[#2d3435] flex items-center justify-center shrink-0">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f9f9f9"/>
+          <div className="relative z-10">
+            <button
+              type="button"
+              onClick={() => setIsEmailMenuOpen((isOpen) => !isOpen)}
+              onKeyDown={(event) => {
+                if (event.key === "Escape" && isEmailMenuOpen) {
+                  setIsEmailMenuOpen(false);
+                }
+              }}
+              className="flex items-center gap-[12px] group/email no-underline relative z-10 w-full text-left"
+              aria-expanded={isEmailMenuOpen}
+              aria-haspopup="menu"
+              aria-controls={isEmailMenuOpen ? "email-contact-options" : undefined}
+            >
+              <div className="w-[40px] h-[40px] bg-[#2d3435] flex items-center justify-center shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#f9f9f9"/>
+                </svg>
+              </div>
+              <div className="flex-1">
+                <p className="font-['Manrope:Regular',sans-serif] text-[11px] text-[#737373] not-italic mb-[1px]">Электронная почта</p>
+                <p className="font-['Manrope:Extra_Bold',sans-serif] text-[15px] text-[#2d3435] group-hover/email:text-[#e02020] transition-colors not-italic">
+                  {CONTACT_EMAIL}
+                </p>
+              </div>
+              <svg
+                className={`w-4 h-4 text-[#737373] transition-transform ${isEmailMenuOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
               </svg>
+            </button>
+
+            {isEmailMenuOpen && (
+              <div
+                id="email-contact-options"
+                role="menu"
+                tabIndex={-1}
+                onKeyDown={handleEmailMenuKeyDown}
+                className="mt-[12px] ml-[52px] bg-white border border-[rgba(45,52,53,0.12)] shadow-[0_12px_30px_rgba(45,52,53,0.12)] p-[10px] flex flex-col gap-[6px]"
+              >
+                <a role="menuitem" href={`https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Написать через Gmail
+                </a>
+                <a role="menuitem" href={`https://mail.yandex.ru/compose?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Написать через Яндекс Почту
+                </a>
+                <a role="menuitem" href={`https://e.mail.ru/compose/?to=${CONTACT_EMAIL}`} target="_blank" rel="noopener noreferrer" className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Написать через Mail.ru
+                </a>
+                <a role="menuitem" href={`mailto:${CONTACT_EMAIL}`} className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-[#2d3435] hover:bg-[#f2f4f4] transition-colors no-underline">
+                  Открыть почтовое приложение
+                </a>
+                <button
+                  role="menuitem"
+                  type="button"
+                  onClick={() => {
+                    void handleCopyEmail();
+                  }}
+                  className="px-[12px] py-[9px] font-['Manrope:Extra_Bold',sans-serif] text-[13px] text-left text-[#2d3435] hover:bg-[#f2f4f4] transition-colors"
+                >
+                  {emailCopyStatus === "copied"
+                    ? "Email скопирован"
+                    : emailCopyStatus === "manual"
+                      ? "Скопируйте вручную"
+                      : "Скопировать email"}
+                </button>
+              </div>
+            )}
             </div>
-            <div>
-              <p className="font-['Manrope:Regular',sans-serif] text-[11px] text-[#737373] not-italic mb-[1px]">Электронная почта</p>
-              <p className="font-['Manrope:Extra_Bold',sans-serif] text-[15px] text-[#2d3435] group-hover/email:text-[#e02020] transition-colors not-italic">
-                info@newartalyans.ru
-              </p>
-            </div>
-          </a>
         </div>
 
         <div className="flex flex-col gap-[12px] mt-[10px] relative z-10">
