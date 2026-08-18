@@ -1582,7 +1582,7 @@ function Form() {
     
     try {
       await emailjs.send(
-        "service_zabiaiv",
+        "service_tgp68bo",
         "template_3u065yc",
         {
           from_name: data.name,
@@ -2217,7 +2217,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
   // EmailJS настройки — замените на свои ключи с emailjs.com
   // Service ID, Template ID и Public Key берутся из вашего аккаунта EmailJS
   // Шаблон должен использовать переменные: {{from_name}}, {{phone}}, {{message}}, {{to_email}}
-  const EMAILJS_SERVICE_ID = "service_zabiaiv";
+  const EMAILJS_SERVICE_ID = "service_tgp68bo";
   const EMAILJS_TEMPLATE_ID = "template_3u065yc";
   const EMAILJS_PUBLIC_KEY = "r6ocrylJ1S5_OiFhq";
 
